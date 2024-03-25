@@ -1,6 +1,6 @@
 from django.db import models
 
-
+#django models
 class Brand(models.Model):
     id      = models.AutoField(primary_key=True)
     name    = models.CharField(max_length=200)
