@@ -7,6 +7,9 @@ def cars_view(request):
 
     if search:
         cars = Car.objects.filter(model__icontains=search).order_by('model')
+        
+        if not cars:
+            cars = Car.objects.filter(brand__name__icontains=search).order_by('model')
     else:
         cars = Car.objects.all().order_by('model')
 
