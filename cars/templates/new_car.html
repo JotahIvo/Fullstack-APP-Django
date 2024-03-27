@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Novo carro</title>
+</head>
+{% block content %}
+    <body>
+        <form action="{% url 'new_car' %}" method="post" enctype="multipart/form-data"> <!-- upload images -->
+            {% csrf_token %} <!-- django native middleware -->
+
+            <table>
+                {{ new_car_form.as_table }}
+            </table>
+
+            <input type="submit" value="Cadastrar" class="btn btn-primary">
+        </form>
+    </body>
+{% endblock %}
+</html>
